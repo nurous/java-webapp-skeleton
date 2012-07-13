@@ -43,6 +43,17 @@ sourceSets {
 }
 
 dependencies {
+/*    IntelliJ's JetGradle plugin doesn't understand the structure used.
+ Easiest way to get new dependencies working is:
+ 1. Comment out the existing dependencies
+ 2. Add the dependency as 'compile' below
+ 3. Refresh in JetGradle
+ 4. "Import" them from JetGradle (right-click on the library in the root module)
+ 5. ALT + TAB to a different application and back (to refresh the IMLs)
+ 5. Move the 'orderEntry type="library"' lines from the root module's iml file to the appropriate module's iml file
+ 6. Change the dependency from 'compile' to 'testCompile', 'integrationCompile', ... as appropriate
+ 7. Uncomment the other other dependencies
+*/
 
     /* DB */
     compile "com.h2database:h2:$h2dbversion"
