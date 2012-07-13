@@ -5,6 +5,7 @@ apply plugin: 'jetty'
 sourceCompatibility = 1.6
 
 // Library Versions
+commonsDbcpVersion = '+'
 h2dbversion = '+'
 hibernateCoreVersion = '+'
 hibernateAnnotationsVersion = '+'
@@ -57,6 +58,7 @@ dependencies {
 
     /* DB */
     compile "com.h2database:h2:$h2dbversion"
+    compile "commons-dbcp:commons-dbcp:$commonsDbcpVersion"
     compile "org.hibernate:hibernate-core:$hibernateCoreVersion"
     compile "org.hibernate:hibernate-annotations:$hibernateAnnotationsVersion"
     compile "org.hibernate:hibernate-validator:$hibernateValidatorVersion"

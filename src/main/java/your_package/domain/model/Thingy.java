@@ -13,11 +13,17 @@ public class Thingy {
     @NotEmpty
     private String name;
 
+    private Thingy() { /* for hibernate */ }
+
     public Thingy(String name) {
         this.name = name;
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getId() {
+        return id;
     }
 }
