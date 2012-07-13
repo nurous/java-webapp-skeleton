@@ -4,3 +4,16 @@
 *.jar
 *.war
 *.ear
+
+# Project Files #
+.classpath
+.project
+.settings
+.idea/workspace.xml
+.idea/libraries/
+
+# Build Files #
+.gradle
+build
+out
+target

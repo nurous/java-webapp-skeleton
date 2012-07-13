@@ -1,0 +1,92 @@
+version = '1.0'
+
+apply plugin: 'jetty'
+
+sourceCompatibility = 1.6
+
+repositories {
+    mavenLocal()
+
+    mavenCentral()
+}
+
+sourceSets {
+    test {
+        java {
+            srcDirs = ['src/test/unit/java']
+        }
+    }
+    integration {
+        java {
+            srcDirs = ['src/test/integration/java']
+        }
+    }
+    functional {
+        java {
+            srcDirs = ['src/test/functional/java']
+        }
+    }
+}
+
+dependencies {
+
+    /* DB */
+    compile 'com.h2database:h2:+'
+    compile 'org.hibernate:hibernate-core:+'
+    compile 'org.hibernate:hibernate-annotations:+'
+    compile 'org.hibernate:hibernate-validator:+'
+    compile 'javassist:javassist:+'
+    compile 'org.springframework:spring-orm:+'
+    compile 'org.springframework:spring-jdbc:+'
+
+    compile 'org.liquibase:liquibase-core:+'
+
+    /* Web */
+    compile 'org.springframework:spring-webmvc:+'
+    compile 'com.sun.jersey:jersey-core:+'
+    compile 'com.sun.jersey:jersey-server:+'
+    compile 'com.sun.jersey:jersey-json:+'
+
+    /* Utilities */
+    compile 'org.slf4j:slf4j-log4j12:+'
+    compile 'org.slf4j:jcl-over-slf4j:+'
+    compile 'org.slf4j:jul-to-slf4j:+'
+    compile 'org.springframework:spring-context:+'
+
+    /* Unit Test */
+    testCompile 'junit:junit:+'
+    testCompile 'org.mockito:mockito-all:+'
+
+    /* Integration Test */
+    testCompile 'junit:junit:+'
+    integrationCompile 'org.springframework:spring-test:+'
+
+    /* Functional Test */
+    functionalCompile 'junit:junit:+'
+    functionalCompile 'org.seleniumhq.selenium:selenium-java:+'
+
+}
+
+task jettyDaemon(type: org.gradle.api.plugins.jetty.JettyRun) {
+    daemon = true
+}
+
+test {
+    testReportDir = file('build/reports/tests/unit')
+    testResultsDir = file('build/results/tests/unit')
+}
+
+task integration(type: Test) {
+    testClassesDir = sourceSets.integration.output.classesDir
+    classpath = sourceSets.integration.runtimeClasspath
+    testReportDir = file('build/reports/tests/integration')
+    testResultsDir = file('build/results/tests/integration')
+}
+
+task functional(type: Test, dependsOn: jettyDaemon) {
+    testClassesDir = sourceSets.functional.output.classesDir
+    classpath = sourceSets.functional.runtimeClasspath
+    testReportDir = file('build/reports/tests/functional')
+    testResultsDir = file('build/results/tests/funtional')
+}
+
