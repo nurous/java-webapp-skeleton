@@ -100,25 +100,37 @@ test {
 }
 
 task integration(type: Test, dependsOn: test) {
+    description = 'Runs the integration tests'
+    group = 'Verification'
     testClassesDir = sourceSets.integration.output.classesDir
     classpath = sourceSets.main.runtimeClasspath + sourceSets.integration.runtimeClasspath
     testReportDir = file('build/reports/tests/integration')
     testResultsDir = file('build/results/tests/integration')
 }
+check.dependsOn integration
 
 task functional(type: Test, dependsOn: jettyDaemon) {
+    description = 'Runs the functional tests'
+    group = 'Verification'
     testClassesDir = sourceSets.functional.output.classesDir
     classpath = sourceSets.functional.runtimeClasspath
     testReportDir = file('build/reports/tests/functional')
     testResultsDir = file('build/results/tests/funtional')
 }
+check.dependsOn functional
 
-task precommit(dependsOn: [test, integration])
+task precommit(dependsOn: [clean, test, integration]) {
+    description = 'Build to use for before making a commit'
+    group = 'Verification'
+}
 
 task compile(dependsOn: [compileJava, compileTestJava, compileIntegrationJava, compileFunctionalJava])
 task flattenMainJars(type:Copy, dependsOn: compile) { into 'lib/main' from configurations.compile }
 task flattenTestUnitJars(type:Copy) { into 'lib/test/unit' from configurations.testCompile - configurations.compile}
 task flattenTestIntegrationJars(type:Copy) { into 'lib/test/integration' from configurations.integrationCompile - configurations.compile }
 task flattenTestFunctionalJars(type:Copy) { into 'lib/test/functional' from configurations.functionalCompile - configurations.compile }
-task ideaLibs(dependsOn: [flattenMainJars, flattenTestUnitJars, flattenTestIntegrationJars, flattenTestFunctionalJars]) { outputs.dir 'lib' }
+task ideaLibs(dependsOn: [flattenMainJars, flattenTestUnitJars, flattenTestIntegrationJars, flattenTestFunctionalJars]) {
+    description = 'Create flat library directories to make dependencies in IntelliJ easier'
+    outputs.dir 'lib'
+}
 clean.dependsOn cleanIdeaLibs
