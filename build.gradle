@@ -119,7 +119,7 @@ task functional(type: Test, dependsOn: jettyDaemon) {
 }
 check.dependsOn functional
 
-task precommit(dependsOn: [clean, test, integration]) {
+task precommit(dependsOn: [clean, test, integration, functional]) {
     description = 'Build to use for before making a commit'
     group = 'Verification'
 }

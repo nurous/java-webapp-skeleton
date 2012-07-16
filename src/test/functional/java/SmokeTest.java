@@ -1,5 +1,6 @@
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,10 +21,11 @@ public class SmokeTest {
     }
 
     @Test
-    public void addingOneUser() {
-        driver.get("http://localhost:8080/skeleton/user");
-        driver.findElement(By.name("name")).sendKeys("UserName");
-        driver.findElement(By.id("userCommand")).findElement(By.xpath("//input[@type='submit']")).click();
+    @Ignore // TODO: create code to complete the CRUD operations for a 'Thingy'
+    public void thingyCRUD() {
+        driver.get("http://localhost:8080/skeleton/thingy");
+        driver.findElement(By.name("name")).sendKeys("Bob's Amazing Widget");
+        driver.findElement(By.xpath("//input[@type='submit']")).click();
     }
 
 }
