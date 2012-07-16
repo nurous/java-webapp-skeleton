@@ -37,12 +37,18 @@ sourceSets {
         java {
             srcDirs = ['src/test/integration/java']
         }
+        compileClasspath = sourceSets.main.output + sourceSets.integration.compileClasspath
     }
     functional {
         java {
             srcDirs = ['src/test/functional/java']
         }
     }
+}
+
+configurations {
+    integrationCompile { extendsFrom compile }
+    integrationRuntime { extendsFrom integrationCompile, runtime }
 }
 
 dependencies {
@@ -87,7 +93,7 @@ dependencies {
     testCompile "org.mockito:mockito-all:$project.mockitoVersion"
 
     /* Integration Test */
-    testCompile "junit:junit:$project.junitVersion"
+    integrationCompile "junit:junit:$project.junitVersion"
     integrationCompile "org.springframework:spring-test:$project.springVersion"
 
     /* Functional Test */
@@ -105,9 +111,9 @@ test {
     testResultsDir = file('build/results/tests/unit')
 }
 
-task integration(type: Test) {
+task integration(type: Test, dependsOn: test) {
     testClassesDir = sourceSets.integration.output.classesDir
-    classpath = sourceSets.integration.runtimeClasspath
+    classpath = sourceSets.main.runtimeClasspath + sourceSets.integration.runtimeClasspath
     testReportDir = file('build/reports/tests/integration')
     testResultsDir = file('build/results/tests/integration')
 }
@@ -119,3 +125,4 @@ task functional(type: Test, dependsOn: jettyDaemon) {
     testResultsDir = file('build/results/tests/funtional')
 }
 
+task precommit(dependsOn: [test, integration])

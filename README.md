@@ -4,6 +4,7 @@
 
 * Java SDK (1.6 or greater use '`javac -version`' to check your version)
 * [Gradle](http://gradle.org/overview) (build tool)
+** if you used [homebrew](http://mxcl.github.com/homebrew/) to install gradle you need to apply a [workaround for the IntelliJ plugin](http://youtrack.jetbrains.com/issue/IDEA-83361#comment=27-356525)
 * [IntelliJ Community Edition](http://www.jetbrains.com/idea/download/) (IDE)
 
 ## Getting started
@@ -13,9 +14,15 @@
 1. Download the skeleton and start a new git repo by executing:
 
    `curl -L https://github.com/nurous/java-webapp-skeleton/tarball/master | tar zx --strip-components=1 && git init`
+1. Run the build (`gradle precommit`) to download libraries and make sure everything works
 1. Open the project in IntelliJ
+1. Run 'refresh' in the JetGradle plugin in IntelliJ to resolve its dependencies
+   * Select the dependencies and use "Right Click -> Import" to get IntelliJ to add them to the list of External Libraries
+   * If there is any updated dependencies you will need to fix them as described in build.gradle
+   * You can check which dependencies are not found properly via `File -> Project Structure -> Modules` and the dependencies tab for each module
 1. Rename the base module (java-webapp-skeleton) to match your project name
 1. Rename the package '`your_package`' using IntelliJ's rename refactoring to an appropriate package name
 1. Go to the 'TO DO' tab and fix any of the remaining To Do items.
+1. Run the build (`gradle precommit`) to make sure you haven't broken anything
 1. Create your first commit with the current changes ('`git add . && git commit`')
 1. Rename `Thingy` to be your first domain model object.
