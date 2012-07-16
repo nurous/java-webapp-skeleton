@@ -52,22 +52,11 @@ configurations {
 }
 
 dependencies {
-/*    IntelliJ's JetGradle plugin doesn't understand the structure used.
- Easiest way to get new dependencies working is:
- 1. Comment out the existing dependencies
- 2. Add the dependency as 'compile' or 'testCompile' or 'integrationCompile', ... below
- 3. Refresh in JetGradle
- 4. "Import" them from JetGradle (right-click on the library in the root module)
- 5. ALT + TAB to a different application and back (to refresh the IMLs)
- 6. Copy the NEW 'orderEntry type="library"' lines from the root module's iml file to the appropriate module's iml file
- 7. Uncomment the other other dependencies
-*/
 
     /* DB */
     compile "com.h2database:h2:$project.h2dbversion"
     compile "commons-dbcp:commons-dbcp:$project.commonsDbcpVersion"
     compile "org.hibernate:hibernate-core:$project.hibernateCoreVersion"
-    compile "org.hibernate:hibernate-annotations:$project.hibernateAnnotationsVersion"
     compile "org.hibernate:hibernate-validator:$project.hibernateValidatorVersion"
     compile "javassist:javassist:$project.javassistVersion"
     compile "org.springframework:spring-orm:$project.springVersion"
@@ -125,3 +114,11 @@ task functional(type: Test, dependsOn: jettyDaemon) {
 }
 
 task precommit(dependsOn: [test, integration])
+
+task compile(dependsOn: [compileJava, compileTestJava, compileIntegrationJava, compileFunctionalJava])
+task flattenMainJars(type:Copy, dependsOn: compile) { into 'lib/main' from configurations.compile }
+task flattenTestUnitJars(type:Copy) { into 'lib/test/unit' from configurations.testCompile - configurations.compile}
+task flattenTestIntegrationJars(type:Copy) { into 'lib/test/integration' from configurations.integrationCompile - configurations.compile }
+task flattenTestFunctionalJars(type:Copy) { into 'lib/test/functional' from configurations.functionalCompile - configurations.compile }
+task ideaLibs(dependsOn: [flattenMainJars, flattenTestUnitJars, flattenTestIntegrationJars, flattenTestFunctionalJars]) { outputs.dir 'lib' }
+clean.dependsOn cleanIdeaLibs

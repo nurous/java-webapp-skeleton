@@ -7,46 +7,20 @@
       <sourceFolder url="file://$MODULE_DIR$/resources" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../../lib/test/functional" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../../../lib/test/functional" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/../../../lib/test/functional" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../../lib/test/functional" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="TEST" name="selenium-firefox-driver-2.24.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="httpclient-4.1.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="selenium-support-2.24.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="sac-1.3" level="project" />
-    <orderEntry type="library" scope="TEST" name="htmlunit-2.9" level="project" />
-    <orderEntry type="library" scope="TEST" name="commons-logging-1.1.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="hamcrest-core-1.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="selenium-iphone-driver-2.24.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="commons-collections-3.2.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="commons-codec-1.4" level="project" />
-    <orderEntry type="library" scope="TEST" name="selenium-remote-driver-2.24.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="httpcore-4.1.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="commons-lang-2.6" level="project" />
-    <orderEntry type="library" scope="TEST" name="webbit-0.4.6" level="project" />
-    <orderEntry type="library" scope="TEST" name="json-20080701" level="project" />
-    <orderEntry type="library" scope="TEST" name="jsr305-1.3.9" level="project" />
-    <orderEntry type="library" scope="TEST" name="selenium-chrome-driver-2.24.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="selenium-htmlunit-driver-2.24.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="httpmime-4.1.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="guava-12.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="serializer-2.7.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="platform-3.4.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="cssparser-0.9.5" level="project" />
-    <orderEntry type="library" scope="TEST" name="nekohtml-1.9.15" level="project" />
-    <orderEntry type="library" scope="TEST" name="jna-3.4.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="selenium-android-driver-2.24.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="selenium-safari-driver-2.24.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="commons-exec-1.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="xercesImpl-2.9.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="xalan-2.7.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="commons-io-2.0.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="netty-3.2.7.Final" level="project" />
-    <orderEntry type="library" scope="TEST" name="htmlunit-core-js-2.9" level="project" />
-    <orderEntry type="library" scope="TEST" name="junit-4.10" level="project" />
-    <orderEntry type="library" scope="TEST" name="selenium-ie-driver-2.24.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="xml-apis-1.3.04" level="project" />
-    <orderEntry type="library" scope="TEST" name="selenium-api-2.24.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="selenium-java-2.24.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="cglib-nodep-2.1_3" level="project" />
   </component>
 </module>
 

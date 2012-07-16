@@ -7,11 +7,21 @@
       <sourceFolder url="file://$MODULE_DIR$/resources" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../../lib/test/unit" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../../../lib/test/unit" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/../../../lib/test/unit" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../../lib/test/unit" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
     <orderEntry type="module" module-name="main" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="TEST" name="mockito-all-1.9.5-rc1" level="project" />
-    <orderEntry type="library" scope="TEST" name="junit-4.10" level="project" />
-    <orderEntry type="library" scope="TEST" name="hamcrest-core-1.1" level="project" />
   </component>
 </module>
 
