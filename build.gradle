@@ -55,12 +55,11 @@ dependencies {
 /*    IntelliJ's JetGradle plugin doesn't understand the structure used.
  Easiest way to get new dependencies working is:
  1. Comment out the existing dependencies
- 2. Add the dependency as 'compile' below
+ 2. Add the dependency as 'compile' or 'testCompile' or 'integrationCompile', ... below
  3. Refresh in JetGradle
  4. "Import" them from JetGradle (right-click on the library in the root module)
  5. ALT + TAB to a different application and back (to refresh the IMLs)
- 5. Move the 'orderEntry type="library"' lines from the root module's iml file to the appropriate module's iml file
- 6. Change the dependency from 'compile' to 'testCompile', 'integrationCompile', ... as appropriate
+ 6. Copy the NEW 'orderEntry type="library"' lines from the root module's iml file to the appropriate module's iml file
  7. Uncomment the other other dependencies
 */
 
@@ -88,15 +87,15 @@ dependencies {
     compile "org.slf4j:jul-to-slf4j:$project.slf4jVersion"
     compile "org.springframework:spring-context:$project.springVersion"
 
-    /* Unit Test */
+    /* Unit Test Only */
     testCompile "junit:junit:$project.junitVersion"
     testCompile "org.mockito:mockito-all:$project.mockitoVersion"
 
-    /* Integration Test */
+    /* Integration Test Only */
     integrationCompile "junit:junit:$project.junitVersion"
     integrationCompile "org.springframework:spring-test:$project.springVersion"
 
-    /* Functional Test */
+    /* Functional Test Only */
     functionalCompile "junit:junit:$project.junitVersion"
     functionalCompile "org.seleniumhq.selenium:selenium-java:$project.seleniumVersion"
 

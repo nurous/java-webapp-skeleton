@@ -15,6 +15,7 @@
 
    `curl -L https://github.com/nurous/java-webapp-skeleton/tarball/master | tar zx --strip-components=1 && git init`
 1. Run the build (`gradle precommit`) to download libraries and make sure everything works
+1. Create your first commit ('`git add . && git commit`')
 1. Open the project in IntelliJ
 1. Run 'refresh' in the JetGradle plugin in IntelliJ to resolve its dependencies
    * Select the dependencies and use "Right Click -> Import" to get IntelliJ to add them to the list of External Libraries
@@ -24,5 +25,5 @@
 1. Rename the package '`your_package`' using IntelliJ's rename refactoring to an appropriate package name
 1. Go to the 'TO DO' tab and fix any of the remaining To Do items.
 1. Run the build (`gradle precommit`) to make sure you haven't broken anything
-1. Create your first commit with the current changes ('`git add . && git commit`')
+1. Create a commit with your changes ('`git add . && git commit`')
 1. Rename `Thingy` to be your first domain model object.
