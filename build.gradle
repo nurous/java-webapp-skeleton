@@ -5,19 +5,21 @@ apply plugin: 'jetty'
 sourceCompatibility = 1.6
 
 // Library Versions
-commonsDbcpVersion = '+'
-h2dbversion = '+'
-hibernateCoreVersion = '+'
-hibernateAnnotationsVersion = '+'
-hibernateValidatorVersion = '+'
-javassistVersion = '+'
-jerseyVersion = '+'
-junitVersion = '+'
-liquibaseVersion = '+'
-mockitoVersion = '+'
-slf4jVersion = '+'
-seleniumVersion = '+'
-springVersion = '+'
+project.ext {
+    commonsDbcpVersion = '+'
+    h2dbversion = '+'
+    hibernateCoreVersion = '+'
+    hibernateAnnotationsVersion = '+'
+    hibernateValidatorVersion = '+'
+    javassistVersion = '+'
+    jerseyVersion = '+'
+    junitVersion = '+'
+    liquibaseVersion = '+'
+    mockitoVersion = '+'
+    slf4jVersion = '+'
+    seleniumVersion = '+'
+    springVersion = '+'
+}
 
 repositories {
     mavenLocal()
@@ -57,40 +59,40 @@ dependencies {
 */
 
     /* DB */
-    compile "com.h2database:h2:$h2dbversion"
-    compile "commons-dbcp:commons-dbcp:$commonsDbcpVersion"
-    compile "org.hibernate:hibernate-core:$hibernateCoreVersion"
-    compile "org.hibernate:hibernate-annotations:$hibernateAnnotationsVersion"
-    compile "org.hibernate:hibernate-validator:$hibernateValidatorVersion"
-    compile "javassist:javassist:$javassistVersion"
-    compile "org.springframework:spring-orm:$springVersion"
-    compile "org.springframework:spring-jdbc:$springVersion"
+    compile "com.h2database:h2:$project.h2dbversion"
+    compile "commons-dbcp:commons-dbcp:$project.commonsDbcpVersion"
+    compile "org.hibernate:hibernate-core:$project.hibernateCoreVersion"
+    compile "org.hibernate:hibernate-annotations:$project.hibernateAnnotationsVersion"
+    compile "org.hibernate:hibernate-validator:$project.hibernateValidatorVersion"
+    compile "javassist:javassist:$project.javassistVersion"
+    compile "org.springframework:spring-orm:$project.springVersion"
+    compile "org.springframework:spring-jdbc:$project.springVersion"
 
-    compile "org.liquibase:liquibase-core:$liquibaseVersion"
+    compile "org.liquibase:liquibase-core:$project.liquibaseVersion"
 
     /* Web */
-    compile "org.springframework:spring-webmvc:$springVersion"
-    compile "com.sun.jersey:jersey-core:$jerseyVersion"
-    compile "com.sun.jersey:jersey-server:$jerseyVersion"
-    compile "com.sun.jersey:jersey-json:$jerseyVersion"
+    compile "org.springframework:spring-webmvc:$project.springVersion"
+    compile "com.sun.jersey:jersey-core:$project.jerseyVersion"
+    compile "com.sun.jersey:jersey-server:$project.jerseyVersion"
+    compile "com.sun.jersey:jersey-json:$project.jerseyVersion"
 
     /* Utilities */
-    compile "org.slf4j:slf4j-log4j12:$slf4jVersion"
-    compile "org.slf4j:jcl-over-slf4j:$slf4jVersion"
-    compile "org.slf4j:jul-to-slf4j:$slf4jVersion"
-    compile "org.springframework:spring-context:$springVersion"
+    compile "org.slf4j:slf4j-log4j12:$project.slf4jVersion"
+    compile "org.slf4j:jcl-over-slf4j:$project.slf4jVersion"
+    compile "org.slf4j:jul-to-slf4j:$project.slf4jVersion"
+    compile "org.springframework:spring-context:$project.springVersion"
 
     /* Unit Test */
-    testCompile "junit:junit:$junitVersion"
-    testCompile "org.mockito:mockito-all:$mockitoVersion"
+    testCompile "junit:junit:$project.junitVersion"
+    testCompile "org.mockito:mockito-all:$project.mockitoVersion"
 
     /* Integration Test */
-    testCompile "junit:junit:$junitVersion"
-    integrationCompile "org.springframework:spring-test:$springVersion"
+    testCompile "junit:junit:$project.junitVersion"
+    integrationCompile "org.springframework:spring-test:$project.springVersion"
 
     /* Functional Test */
-    functionalCompile "junit:junit:$junitVersion"
-    functionalCompile "org.seleniumhq.selenium:selenium-java:$seleniumVersion"
+    functionalCompile "junit:junit:$project.junitVersion"
+    functionalCompile "org.seleniumhq.selenium:selenium-java:$project.seleniumVersion"
 
 }
 
