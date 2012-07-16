@@ -119,18 +119,17 @@ task functional(type: Test, dependsOn: jettyDaemon) {
 }
 check.dependsOn functional
 
-task precommit(dependsOn: [clean, test, integration, functional]) {
-    description = 'Build to use for before making a commit'
-    group = 'Verification'
-}
-
 task compile(dependsOn: [compileJava, compileTestJava, compileIntegrationJava, compileFunctionalJava])
 task flattenMainJars(type:Copy, dependsOn: compile) { into 'lib/main' from configurations.compile }
 task flattenTestUnitJars(type:Copy) { into 'lib/test/unit' from configurations.testCompile - configurations.compile}
 task flattenTestIntegrationJars(type:Copy) { into 'lib/test/integration' from configurations.integrationCompile - configurations.compile }
 task flattenTestFunctionalJars(type:Copy) { into 'lib/test/functional' from configurations.functionalCompile - configurations.compile }
 task ideaLibs(dependsOn: [flattenMainJars, flattenTestUnitJars, flattenTestIntegrationJars, flattenTestFunctionalJars]) {
-    description = 'Create flat library directories to make dependencies in IntelliJ easier'
+    description = 'Create flat lib dir to make dependencies in IntelliJ easier: use "gradle cleanIdeaLibs ideaLibs" to recreate'
     outputs.dir 'lib'
 }
-clean.dependsOn cleanIdeaLibs
+
+task precommit(dependsOn: [clean, test, integration, functional]) {
+    description = 'Build to use for before making a commit'
+    group = 'Verification'
+}
