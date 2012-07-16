@@ -8,15 +8,14 @@ public interface Repository<T> {
 
     T get(int id);
 
-    List<T> list();
-
     void update(T o);
 
     void delete(T o);
+
+    List<T> findAll();
 
     List<T> findAll(String field, Object param);
 
     T findBy(String propertyName, String value);
 
-    List<T> orderByDescending(String fieldToBeFiltered, Object filterValue, String sequenceID);
 }

@@ -33,12 +33,6 @@ public class GenericRepository<T> implements Repository<T> {
     }
 
     @Override
-    public List<T> list() {
-        Criteria criteria = getSession().createCriteria(type).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
-        return (List<T>) criteria.list();
-    }
-
-    @Override
     public void update(T o) {
         getSession().update(o);
     }
@@ -50,21 +44,25 @@ public class GenericRepository<T> implements Repository<T> {
 
     @Override
     public List<T> findAll(String field, Object param) {
-        return getSession().createCriteria(type).add(Restrictions.eq(field, param)).list();
+        return getCriteria().add(Restrictions.eq(field, param)).list();
+    }
+
+
+    @Override
+    public List<T> findAll() {
+        return (List<T>) getCriteria().setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+    }
+
+    @Override
+    public T findBy(String propertyName, String value) {
+        return (T) getCriteria().add(Restrictions.eq(propertyName, value)).uniqueResult();
     }
 
     protected Session getSession() {
         return sessionFactory.getCurrentSession();
     }
 
-    @Override
-    public T findBy(String propertyName, String value) {
-        return (T) this.sessionFactory.getCurrentSession().createCriteria(type).add(
-                Restrictions.eq(propertyName, value)).uniqueResult();
-    }
-
-    @Override
-    public List<T> orderByDescending(String fieldToBeFiltered, Object filterValue, String sequenceID) {
-        return getSession().createCriteria(type).add(Restrictions.eq(fieldToBeFiltered, filterValue)).addOrder(Order.desc(sequenceID)).list();
+    private Criteria getCriteria() {
+        return getSession().createCriteria(type);
     }
 }
