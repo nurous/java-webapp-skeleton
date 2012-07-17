@@ -123,7 +123,12 @@ task compile(dependsOn: [compileJava, compileTestJava, compileIntegrationJava, c
 task flattenMainJars(type:Copy, dependsOn: compile) { into 'lib/main' from configurations.compile }
 task flattenTestUnitJars(type:Copy) { into 'lib/test/unit' from configurations.testCompile - configurations.compile}
 task flattenTestIntegrationJars(type:Copy) { into 'lib/test/integration' from configurations.integrationCompile - configurations.compile }
-task flattenTestFunctionalJars(type:Copy) { into 'lib/test/functional' from configurations.functionalCompile - configurations.compile }
+task flattenTestFunctionalJars(type:Copy) {
+    into 'lib/test/functional'
+    from (configurations.functionalCompile - configurations.compile.filter { file ->
+            !file.name.contains('commons-logging')
+        })
+}
 task ideaLibs(dependsOn: [flattenMainJars, flattenTestUnitJars, flattenTestIntegrationJars, flattenTestFunctionalJars]) {
     description = 'Create flat lib dir to make dependencies in IntelliJ easier: use "gradle cleanIdeaLibs ideaLibs" to recreate'
     outputs.dir 'lib'
