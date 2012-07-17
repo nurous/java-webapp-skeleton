@@ -26,6 +26,7 @@ public class GenericRepositoryTest extends IntegrationTest {
         assertNotNull(reload(sessionFactory, thingy));
     }
 
+    // TODO : Implement remaining tests for the repository
     @Test
     @Ignore
     public void should_retrieve_an_object_by_id() throws Exception {

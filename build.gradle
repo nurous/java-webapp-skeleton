@@ -7,6 +7,7 @@ sourceCompatibility = 1.6
 // Library Versions
 project.ext {
     commonsDbcpVersion = '+'
+    freemarkerVersion = '+'
     h2dbversion = '+'
     hibernateCoreVersion = '+'
     hibernateAnnotationsVersion = '+'
@@ -18,6 +19,7 @@ project.ext {
     mockitoVersion = '+'
     slf4jVersion = '+'
     seleniumVersion = '+'
+    servletApiVersion = '+'
     springVersion = '+'
 }
 
@@ -66,6 +68,8 @@ dependencies {
 
     /* Web */
     compile "org.springframework:spring-webmvc:$project.springVersion"
+    compile "javax.servlet:javax.servlet-api:$project.servletApiVersion"
+    compile "org.freemarker:freemarker:$project.freemarkerVersion"
     compile "com.sun.jersey:jersey-core:$project.jerseyVersion"
     compile "com.sun.jersey:jersey-server:$project.jerseyVersion"
     compile "com.sun.jersey:jersey-json:$project.jerseyVersion"
@@ -92,6 +96,11 @@ dependencies {
 
 task jettyDaemon(type: org.gradle.api.plugins.jetty.JettyRun) {
     daemon = true
+}
+
+jettyRun {
+    // TODO: Change 'YOUR_APP_NAME' to something suitable
+    contextPath = 'YOUR_APP_NAME'
 }
 
 test {

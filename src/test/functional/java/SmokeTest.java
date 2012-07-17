@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class SmokeTest {
 
-    static WebDriver driver;
+    private static WebDriver driver;
 
     @BeforeClass
     public static void before() {
@@ -23,7 +23,7 @@ public class SmokeTest {
     @Test
     @Ignore // TODO: create code to complete the CRUD operations for a 'Thingy'
     public void thingyCRUD() {
-        driver.get("http://localhost:8080/skeleton/thingy");
+        driver.get("http://localhost:8080/YOUR_APP_NAME/thingy");
         driver.findElement(By.name("name")).sendKeys("Bob's Amazing Widget");
         driver.findElement(By.xpath("//input[@type='submit']")).click();
     }

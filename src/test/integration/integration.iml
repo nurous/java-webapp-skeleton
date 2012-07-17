@@ -7,7 +7,6 @@
       <sourceFolder url="file://$MODULE_DIR$/resources" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
-    <orderEntry type="module" module-name="main" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -21,6 +20,7 @@
         <jarDirectory url="file://$MODULE_DIR$/../../../lib/test/integration" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="java-webapp-skeleton" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

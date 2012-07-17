@@ -8,10 +8,21 @@
 
     <mvc:annotation-driven/>
 
-    <mvc:view-controller path="/" view-name="home"/>
+    <mvc:view-controller path="/" view-name="index"/>
 
     <mvc:resources mapping="/scripts/**" location="/scripts/"/>
     <mvc:resources mapping="/styles/**" location="/styles/"/>
     <mvc:resources mapping="/images/**" location="/images/"/>
+
+    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+      <property name="templateLoaderPath" value="classpath:views/"/>
+    </bean>
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+      <property name="cache" value="false"/>
+      <property name="prefix" value=""/>
+      <property name="suffix" value=".ftl"/>
+      <property name="exposeSpringMacroHelpers" value="true"/>
+    </bean>
 
 </beans>

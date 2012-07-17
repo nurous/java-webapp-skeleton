@@ -5,8 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/src/test/functional/functional.iml" filepath="$PROJECT_DIR$/src/test/functional/functional.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/test/integration/integration.iml" filepath="$PROJECT_DIR$/src/test/integration/integration.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-webapp-skeleton.iml" filepath="$PROJECT_DIR$/java-webapp-skeleton.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/main/main.iml" filepath="$PROJECT_DIR$/src/main/main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/test/unit/unit.iml" filepath="$PROJECT_DIR$/src/test/unit/unit.iml" />
     </modules>
   </component>
 </project>
