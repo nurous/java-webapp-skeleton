@@ -43,9 +43,10 @@ public class GenericRepositoryTest extends IntegrationTest {
     }
 
     @Test
-    @Ignore
     public void should_retrieve_all_objects_matching_a_specified_field_value() throws Exception {
-        throw new UnsupportedOperationException("Not Yet Implemented");
+        persist(sessionFactory, new Thingy("Miss Me!"), new Thingy("Find Me!"));
+
+        assertEquals(1, repository.findAll("name", "Find Me!").size());
     }
 
     @Test
