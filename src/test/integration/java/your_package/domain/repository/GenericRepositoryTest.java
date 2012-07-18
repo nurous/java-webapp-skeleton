@@ -6,7 +6,7 @@ import org.junit.Test;
 import your_package.IntegrationTest;
 import your_package.domain.model.Thingy;
 
-import static org.hibernate.validator.internal.util.Contracts.*;
+import static org.junit.Assert.*;
 import static util.SessionFactoryExtensions.*;
 
 public class GenericRepositoryTest extends IntegrationTest {
@@ -36,9 +36,10 @@ public class GenericRepositoryTest extends IntegrationTest {
     }
 
     @Test
-    @Ignore
     public void should_retrieve_all_objects() throws Exception {
-        throw new UnsupportedOperationException("Not Yet Implemented");
+        persist(sessionFactory, new Thingy("one"), new Thingy("two"));
+
+        assertEquals(2, repository.findAll().size());
     }
 
     @Test

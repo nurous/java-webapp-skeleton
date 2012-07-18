@@ -3,12 +3,14 @@ package your_package.domain.model;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Thingy {
     @Id
-    private int id;
+    @GeneratedValue
+    private Integer id;
 
     @NotEmpty
     private String name;
@@ -23,7 +25,7 @@ public class Thingy {
         return name;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 }
