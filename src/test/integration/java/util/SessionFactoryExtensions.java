@@ -11,4 +11,13 @@ public class SessionFactoryExtensions {
         currentSession.refresh(objectToReload);
         return objectToReload;
     }
+
+    public static <T> void persist(SessionFactory sessionFactory, T... objects) {
+        Session session = sessionFactory.getCurrentSession();
+        for (T object : objects) {
+            session.save(object);
+            session.flush();
+            session.evict(object);
+        }
+    }
 }

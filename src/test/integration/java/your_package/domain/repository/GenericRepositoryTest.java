@@ -26,11 +26,13 @@ public class GenericRepositoryTest extends IntegrationTest {
         assertNotNull(reload(sessionFactory, thingy));
     }
 
-    // TODO : Implement remaining tests for the repository
     @Test
-    @Ignore
     public void should_retrieve_an_object_by_id() throws Exception {
-        throw new UnsupportedOperationException("Not Yet Implemented");
+        Thingy thingy = new Thingy("Fetch Me");
+
+        persist(sessionFactory, thingy);
+
+        assertNotNull(repository.get(thingy.getId()));
     }
 
     @Test
