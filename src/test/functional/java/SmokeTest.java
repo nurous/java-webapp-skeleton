@@ -22,7 +22,7 @@ public class SmokeTest {
 
     @Test
     @Ignore // TODO: create code to complete the CRUD operations for a 'Thingy'
-    public void thingyCRUD() {
+    public void thingy_CRUD() {
         driver.get("http://localhost:8080/YOUR_APP_NAME/thingy");
         driver.findElement(By.name("name")).sendKeys("Bob's Amazing Widget");
         driver.findElement(By.xpath("//input[@type='submit']")).click();

@@ -13,7 +13,7 @@ public class ThingyIndexTest extends ViewTest {
     public static final String VIEW_NAME = "thingy/index";
 
     @Test
-    public void shouldDisplayListOfThingies() throws Exception {
+    public void should_display_list_of_thingies() throws Exception {
         Model model = new BindingAwareModelMap() {{
             put("thingyList", new Thingy[]{new Thingy("Bob")});
         }};
