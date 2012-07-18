@@ -1,5 +1,6 @@
 package your_package.domain.repository;
 
+import org.hibernate.NonUniqueResultException;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -50,9 +51,17 @@ public class GenericRepositoryTest extends IntegrationTest {
     }
 
     @Test
-    @Ignore
     public void should_retrieve_a_single_object_matching_a_specified_field_value() throws Exception {
-        throw new UnsupportedOperationException("Not Yet Implemented");
+        persist(sessionFactory, new Thingy("Miss Me!"), new Thingy("Find Me!"));
+
+        assertNotNull(repository.findBy("name", "Find Me!"));
+    }
+
+    @Test(expected = NonUniqueResultException.class)
+    public void should_raise_exception_when_retrieving_single_object_but_multiple_are_found() throws Exception {
+        persist(sessionFactory, new Thingy("Find Me!"), new Thingy("Find Me!"));
+
+        repository.findBy("name", "Find Me!");
     }
 
     @Test
