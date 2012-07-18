@@ -12,8 +12,6 @@ project.ext {
     hibernateCoreVersion = '+'
     hibernateAnnotationsVersion = '+'
     hibernateValidatorVersion = '+'
-    javassistVersion = '+'
-    jerseyVersion = '+'
     junitVersion = '+'
     liquibaseVersion = '+'
     mockitoVersion = '+'
@@ -60,7 +58,6 @@ dependencies {
     compile "commons-dbcp:commons-dbcp:$project.commonsDbcpVersion"
     compile "org.hibernate:hibernate-core:$project.hibernateCoreVersion"
     compile "org.hibernate:hibernate-validator:$project.hibernateValidatorVersion"
-    compile "javassist:javassist:$project.javassistVersion"
     compile "org.springframework:spring-orm:$project.springVersion"
     compile "org.springframework:spring-jdbc:$project.springVersion"
 
@@ -70,9 +67,6 @@ dependencies {
     compile "org.springframework:spring-webmvc:$project.springVersion"
     compile "javax.servlet:javax.servlet-api:$project.servletApiVersion"
     compile "org.freemarker:freemarker:$project.freemarkerVersion"
-    compile "com.sun.jersey:jersey-core:$project.jerseyVersion"
-    compile "com.sun.jersey:jersey-server:$project.jerseyVersion"
-    compile "com.sun.jersey:jersey-json:$project.jerseyVersion"
 
     /* Utilities */
     compile "org.slf4j:slf4j-log4j12:$project.slf4jVersion"
