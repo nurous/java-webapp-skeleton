@@ -65,9 +65,14 @@ public class GenericRepositoryTest extends IntegrationTest {
     }
 
     @Test
-    @Ignore
     public void should_update_an_object() throws Exception {
-        throw new UnsupportedOperationException("Not Yet Implemented");
+        Thingy thingy = new Thingy("Update Me!");
+        persist(sessionFactory, thingy);
+
+        thingy.setName("I'm Updated!");
+        repository.update(thingy);
+
+        assertEquals("I'm Updated!", reload(sessionFactory, thingy).getName());
     }
 
     @Test
