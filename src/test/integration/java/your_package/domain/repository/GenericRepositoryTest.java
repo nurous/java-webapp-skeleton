@@ -1,8 +1,8 @@
 package your_package.domain.repository;
 
 import org.hibernate.NonUniqueResultException;
+import org.hibernate.UnresolvableObjectException;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import your_package.IntegrationTest;
 import your_package.domain.model.Thingy;
@@ -75,9 +75,13 @@ public class GenericRepositoryTest extends IntegrationTest {
         assertEquals("I'm Updated!", reload(sessionFactory, thingy).getName());
     }
 
-    @Test
-    @Ignore
+    @Test(expected = UnresolvableObjectException.class)
     public void should_delete_an_object() throws Exception {
-        throw new UnsupportedOperationException("Not Yet Implemented");
+        Thingy thingy = new Thingy("Delete Me!");
+        persist(sessionFactory, thingy);
+
+        repository.delete(thingy);
+
+        reload(sessionFactory, thingy);
     }
 }
