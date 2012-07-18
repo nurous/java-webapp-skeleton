@@ -15,6 +15,8 @@ import javax.servlet.ServletContext;
 /**
  * Needed until Spring provides a WebApplicationContext test context
  * See: https://jira.springsource.org/browse/SPR-5243
+ * @author Stuart Gunter
+ * https://github.com/stuartgunter/view-unit-testing/blob/master/fwk/src/main/java/org/stuartgunter/rendering/MockServletContextLoader.java
  */
 public class MockServletContextLoader extends AbstractContextLoader {
 
