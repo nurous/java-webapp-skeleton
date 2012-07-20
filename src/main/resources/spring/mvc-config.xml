@@ -23,6 +23,7 @@
       <property name="prefix" value=""/>
       <property name="suffix" value=".ftl"/>
       <property name="exposeSpringMacroHelpers" value="true"/>
+      <property name="requestContextAttribute" value="rc"/>
     </bean>
 
 </beans>

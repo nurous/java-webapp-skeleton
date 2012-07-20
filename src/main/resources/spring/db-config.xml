@@ -40,4 +40,10 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <!-- Generic Repositories -->
+    <bean id="thingyRepository" class="your_package.domain.repository.GenericRepository">
+        <constructor-arg index="0" ref="sessionFactory"/>
+        <constructor-arg index="1" value="your_package.domain.model.Thingy"/>
+    </bean>
+
 </beans>

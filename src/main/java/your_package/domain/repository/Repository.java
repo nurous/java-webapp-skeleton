@@ -2,8 +2,8 @@ package your_package.domain.repository;
 
 import java.util.List;
 
-@org.springframework.stereotype.Repository
 public interface Repository<T> {
+
     T save(T o);
 
     T get(int id);

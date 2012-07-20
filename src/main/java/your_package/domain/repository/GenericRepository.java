@@ -3,13 +3,14 @@ package your_package.domain.repository;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
 @SuppressWarnings("unchecked")
+@org.springframework.stereotype.Repository
 public class GenericRepository<T> implements Repository<T> {
+
     protected SessionFactory sessionFactory;
     private Class<T> type;
 
@@ -46,7 +47,6 @@ public class GenericRepository<T> implements Repository<T> {
     public List<T> findAll(String field, Object param) {
         return getCriteria().add(Restrictions.eq(field, param)).list();
     }
-
 
     @Override
     public List<T> findAll() {
