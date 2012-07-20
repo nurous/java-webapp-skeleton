@@ -23,8 +23,8 @@ public class SmokeTest {
     }
 
     @Test
-//    @Ignore // TODO: create code to complete the CRUD operations for a 'Thingy'
     public void thingy_CRUD() {
+        // TODO: create code to complete the CRUD operations for a 'Thingy'
         driver.get("http://localhost:8080/YOUR_APP_NAME/thingy");
         driver.findElement(By.linkText("New Thingy")).click();
         driver.findElement(By.name("name")).sendKeys("Bob's Amazing Widget");
