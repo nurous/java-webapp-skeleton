@@ -10,9 +10,9 @@
 <table>
   <tr>
     <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
+  </tr>
+  <tr>
+      <td>Not Dynamic</td>
   </tr>
 </table>
 
