@@ -18,7 +18,7 @@
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <!-- TODO: Change 'YOUR_APP_NAME' to something suitable and set the environments variables for each environment -->
+                <!-- TODO: MAJOR: Change 'YOUR_APP_NAME' to something suitable and set the environments variables for each environment -->
                 <value>classpath:environments/${YOUR_APP_NAME_ENV:dev}/application.properties</value>
             </list>
         </property>

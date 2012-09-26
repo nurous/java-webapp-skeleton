@@ -19,7 +19,7 @@ public class ThingyIndexTest extends ViewTest {
         }};
         String result = render(VIEW_NAME, model);
 
-        // TODO: Make this a sensible assertion and implement the view accordingly
+        // TODO: 3: Make this a sensible assertion and implement the view accordingly
         assertEquals("INDEX", result.trim());
     }
 }

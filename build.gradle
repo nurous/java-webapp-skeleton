@@ -92,7 +92,7 @@ task jettyDaemon(type: org.gradle.api.plugins.jetty.JettyRun) {
     daemon = true
 }
 
-// TODO: Change 'YOUR_APP_NAME' to something suitable
+// TODO: MAJOR: Change 'YOUR_APP_NAME' to something suitable
 [jettyRun, jettyDaemon]*.contextPath = 'YOUR_APP_NAME'
 
 test {
