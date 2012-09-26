@@ -96,7 +96,7 @@ test {
     testResultsDir = file('build/results/tests/unit')
 }
 
-task integration(type: Test, dependsOn: test) {
+task integration(type: Test) {
     description = 'Runs the integration tests'
     group = 'Verification'
     testClassesDir = sourceSets.integration.output.classesDir
@@ -135,3 +135,6 @@ task precommit(dependsOn: [clean, test, integration, functional]) {
     description = 'Build to use for before making a commit'
     group = 'Verification'
 }
+// Forcing logical order for 'precommit' until the issue http://issues.gradle.org/browse/GRADLE-427 is fixed
+functional.dependsOn(integration)
+integration.dependsOn(test)
