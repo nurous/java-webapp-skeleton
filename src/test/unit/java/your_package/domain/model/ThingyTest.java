@@ -1,31 +1,22 @@
 package your_package.domain.model;
 
-import static junit.framework.Assert.assertTrue;
-
-import java.util.HashMap;
-import java.util.Map;
+import org.junit.Test;
+import your_package.test_utils.ValidationHelper;
 
 import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
+import java.util.Map;
 
-import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class ThingyTest {
 
     @Test
     public void should_ensure_mandatory_fields_are_not_null_or_blank() {
         Thingy thingy = new Thingy("");
-        Map<String, ConstraintViolation<Thingy>> violationsMap = validate(thingy);
-        assertTrue(violationsMap.get("name").getMessageTemplate().contains("NotEmpty"));
+
+        Map<String, ConstraintViolation<Thingy>> violations = ValidationHelper.validate(thingy);
+
+        assertEquals("may not be empty", violations.get("name").getMessage());
     }
 
-    private <T> Map<String, ConstraintViolation<T>> validate(T user) {
-        Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
-        Map<String, ConstraintViolation<T>> violations = new HashMap<String, ConstraintViolation<T>>();
-        for (ConstraintViolation<T> violation : validator.validate(user)) {
-            violations.put(violation.getPropertyPath().toString(), violation);
-        }
-        return violations;
-    }
 }
