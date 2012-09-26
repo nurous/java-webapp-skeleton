@@ -77,7 +77,6 @@ dependencies {
     /* Integration Test Only */
     integrationCompile "junit:junit:$project.junitVersion"
     integrationCompile "org.springframework:spring-test:$project.springVersion"
-    integrationCompile "javax.servlet:javax.servlet-api:$project.servletApiVersion"
 
     /* Functional Test Only */
     functionalCompile "junit:junit:$project.junitVersion"
